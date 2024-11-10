@@ -12,15 +12,17 @@
   </head>
 
   <body>
+    
     <h1>HackFlow</h1>
     <h2>Study Time</h2>
     <h3>Tasklist</h3>
-    <br />
-    <h4>12:02 Remaining...</h4>
+    <br>
+    <h4 id="Remains">Time Remaining</h4>
     <div class="Button-Section">
-      <button class="StartButton">Start Again</button>
-      <button class="ResetButton">Reset Pomodoro</button>
+      <button class="StartButton" onclick="start()">Start Again</button>
+      <button class="ResetButton" onclick="reset()">Reset Pomodoro</button>      
     </div>
-    <script src="myscripts.js"></script>
+    <script src="script.js"></script>
+    
   </body>
 </html>

@@ -1,1 +1,51 @@
-
+body {
+    background-color: #333333;
+    text-align: center;
+    color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  button {
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 35px;
+    margin: 15px;
+    text-align: center;
+    color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    transition: transform 0.1s ease;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  button:active {
+    transform: scale(0.95); /* Scale down slightly */
+  }
+  
+  .StartButton:hover {
+    background-color: green;
+  }
+  .ResetButton:hover {
+    background-color: red;
+  }
+  
+  .title {
+    font-size: 125px;
+    letter-spacing: 40px;
+    margin-bottom: 5px;
+  }
+  
+  .StartButton{
+    background-color:rgb(83, 80, 80);
+    
+  }
+  
+  .ResetButton{
+    background-color:rgb(83, 80, 80);
+  }
