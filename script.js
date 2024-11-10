@@ -7,6 +7,7 @@ const taskList = document.getElementById('task-list');
 
 function addNewTask () {
     let inputText = addTaskInput.value.trim();
+    let fieldBoxShadowStyle = addTaskInput.style.boxShadow;
     if (inputText !== '') {
         let taskItem = document.createElement('li');
         taskItem.textContent = inputText;
@@ -14,12 +15,14 @@ function addNewTask () {
         addTaskInput.value = '';
     }
     else {
-        addTaskInput.style.border('3px solid #DD0000');
-        setTimeout(addTaskInput.style.border, 1000, '3px solid #DD0000');
+        addTaskInput.style.boxShadow = ('0 0 5px #FF0000 inset');
+        setTimeout( () => {
+          addTaskInput.style.boxShadow = (fieldBoxShadowStyle)
+        }, 1000);
     }
 }
 
-addTaskButton[0].addEventListener('click', addNewTask);
+addTaskButton.addEventListener('click', addNewTask);
 
 addTaskInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
