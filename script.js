@@ -32,32 +32,39 @@ addTaskInput.addEventListener('keypress', function(event) {
 
 // Timer
 
-let Time = 25;
+let Time;
+let studyTime = 60;
+let restTime = 10;
+let statusNum = 0;
+let statusQuo = `study`;
 let Reset = 0;
 
-const studyElement = document.getElementById("studyRemains");
-studyElement.innerHTML = `${studyTime} seconds study time`;
+const statusElement = document.getElementById("Remains");
+statusElement.innerHTML = `${studyTime} minutes of ${statusQuo} time`;
 
-const restElement = document.getElementById("restRemains");
-restElement.innerHTML = `${studyTime} seconds rest time`;
 
 function ticking(){
-  
-    const endTime = Date.now() + Time*1000;
-    const countDownElement = document.getElementById('studyRemains');
+    if(statusNum ===0){
+      Time = studyTime;
+    }
+    else{
+      Time = restTime;
+    }
+
+    const endTime = Date.now() + Time*1000*60;
   
     function updateCountdown() {
       if(Reset === 1){
-        studyElement.innerHTML = `${Time} seconds`;
+        statusElement.innerHTML = `${Time} minutes of ${statusQuo}`;
       }
       else{
         const remaining = endTime - Date.now();
         const secondsLeft = Math.max(Math.floor(remaining/1000), 0);
-        studyElement.textContent = secondsLeft + ' seconds remaining';
+        statusElement.textContent = Math.floor(secondsLeft/60) +' minutes and ' + secondsLeft%60 +' seconds of '+`${statusQuo}`+' time remaining';
         if (remaining > 0) {
             requestAnimationFrame(updateCountdown);
         } else {
-            element.textContent = 'Time is up!';
+            transition();
         }
       }     
     }
@@ -74,4 +81,19 @@ function start(){
 function reset(){
   console.log("No");
   Reset = 1;
+}
+
+function transition(){
+   if(statusNum === 0){
+    statusNum = 1;
+    restTime = 10;
+    statusQuo = `rest`;
+    ticking();
+   }
+   else{
+    statusNum = 0;
+    studyTime = 25;
+    statusQuo = `study`;
+    ticking();
+   }
 }
