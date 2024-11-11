@@ -23,9 +23,33 @@ body {
     letter-spacing: 40px;
     margin-bottom: 5px;
   }
+.sub-heading {
+  font-family: "Rationale", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0px;
+  font-style: normal;
+}
+#Remains {
+  font-size: 80px;
+  margin: 50px;
+}
+
 
   input[type="text"] {
     border-radius: 50px;
+  }
+
+  #list-container {
+    margin: auto;
+    outline: #333333;
+    width: 50%;
+    align-content: center;
+    border-style: solid; 
+    border-width: 2px; 
+    border-color: #FFFFFF; 
+    margin-top: 30px;
+    border-radius: 10px;
   }
 
   ul {
@@ -37,11 +61,24 @@ body {
     margin: 0;
     text-align: left;            /* Align text within each item */
     list-style: none;
+    color: white;
 }
 
+.task-title {
+  color: white;
+  font-family: "Rationale", sans-serif;
+  margin: 10px;
+  font-size: 30px;
+}
+
+ul {
+  margin-bottom: 10px;
+  margin-top: 10px
+}
 ul li {
     padding: 5px 0;              /* Adds space between items */
     width: fit-content;          /* Makes each item fit its content width */
+    color: white;
 }
   
   #add-task-input {
@@ -68,11 +105,14 @@ ul li {
   
   #add-task-button {
     font-size: 15px;
-    background-color: rgb(0, 112, 223);
+    background-color: transparent;
+    border-color: white;
     padding: 10px;
+    border-width: 5px;
   }
   
   button {
+    background-color: transparent;
     padding: 20px;
     border-radius: 15px;
     font-size: 35px;
@@ -83,6 +123,8 @@ ul li {
     font-weight: 100;
     font-style: normal;
     transition: transform 0.1s ease;
+    border-color: white;
+    background-color: transparent;
   }
   
   button:hover {
@@ -94,10 +136,10 @@ ul li {
   }
   
   .StartButton:hover {
-    background-color: green;
+    background-color: green; 
   }
   .ResetButton:hover {
-    background-color: red;
+    background-color: red; 
   }
   
   .title {
@@ -107,10 +149,12 @@ ul li {
   }
   
   .StartButton{
-    background-color:rgb(83, 80, 80);
+    background-color:rgb(125, 125, 125);
+    border-width: 10px;
     
   }
   
   .ResetButton{
-    background-color:rgb(83, 80, 80);
+    background-color:rgb(125, 125, 125);
+    border-width: 10px;
   }

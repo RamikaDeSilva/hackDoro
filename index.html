@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>HackFlow Pomodoro Timer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zen+Dots&display=swap"
       rel="stylesheet"
@@ -12,9 +12,9 @@
   </head>
 
   <body>
-    
+
     <h1 class="title">HackFlow</h1>
-    <h2>Study Time</h2>
+    <h2 id="Banner">Study Time</h2>
     <div id="list-container">
       <h3>Tasklist</h3>
       <ul id="task-list">
@@ -25,10 +25,14 @@
     <br>
     <h4 id="Remains">Time Remaining</h4>
     <div class="Button-Section">
-      <button class="StartButton" onclick="start()">Start Again</button>
-      <button class="ResetButton" onclick="reset()">Reset Pomodoro</button>      
+      <button class="StartButton" onclick="start()">Start</button>
+      <button class="ResetButton" onclick="reset()">Reset Pomodoro</button>
     </div>
+    <input type="number" id="study-input-number" placeholder="study time(minutes)"/> 
+    <button id="ConfirmButton" onclick="setTime()">Confirm</button>
+    <input type="number" id="rest-input-number" placeholder="rest time(minutes)"/> 
+
     <script src="script.js"></script>
-    
+
   </body>
 </html>

@@ -1,4 +1,3 @@
-
 // Task List
 
 const addTaskInput = document.getElementById('add-task-input');
@@ -33,15 +32,25 @@ addTaskInput.addEventListener('keypress', function(event) {
 // Timer
 
 let Time;
-let studyTime = 60;
-let restTime = 10;
+//let studyTime = 60;
+let restTime;
 let statusNum = 0;
-let statusQuo = `study`;
+let statusQuo = `studying`;
+let studyBanner = `Study`;
 let Reset = 0;
+let studyTime; 
+
+const banner = document.getElementById("Banner");
+banner.innerHTML = `${studyBanner} time`;
 
 const statusElement = document.getElementById("Remains");
-statusElement.innerHTML = `${studyTime} minutes of ${statusQuo} time`;
 
+
+function setTime(){
+  studyTime = document.getElementById('study-input-number').value;
+  restTime = document.getElementById('rest-input-number').value;
+  statusElement.innerHTML = `${studyTime} minutes of ${statusQuo} time`;
+}
 
 function ticking(){
     if(statusNum ===0){
@@ -58,9 +67,11 @@ function ticking(){
         statusElement.innerHTML = `${Time} minutes of ${statusQuo}`;
       }
       else{
+        statusElement.innerHTML = `${studyTime} minutes of ${statusQuo} time`;
+        banner.innerHTML = `${studyBanner} time`;
         const remaining = endTime - Date.now();
         const secondsLeft = Math.max(Math.floor(remaining/1000), 0);
-        statusElement.textContent = Math.floor(secondsLeft/60) +' minutes and ' + secondsLeft%60 +' seconds of '+`${statusQuo}`+' time remaining';
+        statusElement.textContent = Math.floor(secondsLeft/60) +': ' + secondsLeft%60 ;
         if (remaining > 0) {
             requestAnimationFrame(updateCountdown);
         } else {
@@ -86,14 +97,16 @@ function reset(){
 function transition(){
    if(statusNum === 0){
     statusNum = 1;
-    restTime = 10;
-    statusQuo = `rest`;
+    restTime;
+    statusQuo = `resting`;
+    studyBanner = `Rest`;
     ticking();
    }
    else{
     statusNum = 0;
-    studyTime = 25;
-    statusQuo = `study`;
+    studyTime;
+    statusQuo = `studying`;
+    studyBanner = `Study`;
     ticking();
    }
-}
+} 
