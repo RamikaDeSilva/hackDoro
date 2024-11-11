@@ -45,11 +45,33 @@ banner.innerHTML = `${studyBanner} time`;
 
 const statusElement = document.getElementById("Remains");
 
+const studyTimeInput = document.getElementById('study-input-number');
+const restTimeInput = document.getElementById('rest-input-number')
+
 
 function setTime(){
-  studyTime = document.getElementById('study-input-number').value;
-  restTime = document.getElementById('rest-input-number').value;
-  statusElement.innerHTML = `${studyTime} minutes of ${statusQuo} time`;
+  studyTime = studyTimeInput.value;
+  restTime = restTimeInput.value;
+  let studyTimeInputBoxShadowStyle = studyTimeInput.style.boxShadow;
+  let restTimeInputBoxShadowStyle = restTimeInput.style.boxShadow;
+  if (studyTime !== '' && restTime !== '') {
+    statusElement.innerHTML = `${studyTime} minutes of ${statusQuo} time`;
+  }
+  else {
+    if (studyTime === '') {
+      studyTimeInput.style.boxShadow = ('0 0 5px #FF0000 inset');
+      setTimeout( () => {
+        studyTimeInput.style.boxShadow = (studyTimeInputBoxShadowStyle)
+      }, 1000);
+    }
+    if (restTime === '') {
+      restTimeInput.style.boxShadow = ('0 0 5px #FF0000 inset');
+      setTimeout( () => {
+        restTimeInput.style.boxShadow = (restTimeInputBoxShadowStyle)
+      }, 1000);
+    }
+    
+  }
 }
 
 function ticking(){
@@ -68,7 +90,7 @@ function ticking(){
       }
       else{
         statusElement.innerHTML = `${studyTime} minutes of ${statusQuo} time`;
-        banner.innerHTML = `${studyBanner} time`;
+        banner.innerHTML = `${studyBanner} Time`;
         const remaining = endTime - Date.now();
         const secondsLeft = Math.max(Math.floor(remaining/1000), 0);
         statusElement.textContent = Math.floor(secondsLeft/60) +': ' + secondsLeft%60 ;
